@@ -1,0 +1,23 @@
+.gsd-keyboard.settings-ported
+GitHub Desktop/
+dconf/
+evolution/
+feh/
+github-copilot/
+gtk-3.0/
+gtk-4.0/
+i3status/
+libreoffice/
+mimeapps.list
+neofetch/
+node_repl_history
+nvim-kickstart/
+nvm/
+pulse/
+scripts/
+totem/
+user-dirs.dirs
+user-dirs.locale
+vlc/
+wpg/
+zsh/history
