@@ -20,7 +20,7 @@ bindsym $mod+Shift+Delete exec $reboot
 
 # Letter Key Bindings
 # split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -109,9 +109,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
 
-for_window [class="firefox"] move workspace $ws1
 for_window [class="firefox"] border pixel 0
-for_window [class="Nautilus"] move workspace $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -157,7 +155,7 @@ bindsym $mod+r mode "resize"
 # }
 
 # Setting Wallpaper
-exec_always feh --bg-scale $HOME/Pictures/Wallpapers_Desktop/bg.png --no-fehbg
+exec_always feh --bg-scale $HOME/Media/Pictures/Wallpapers_Desktop/bg.png --no-fehbg
 
 # Polybar Kill prev instances and create new
 exec_always killall polybar

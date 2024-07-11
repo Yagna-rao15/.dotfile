@@ -66,16 +66,19 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
-alias vim='nvim'
+alias ls='ls -la --color'
 alias c='clear'
 alias mkdir='mkdir -pv'
+alias mv='mv -i'
+alias rm='rm -i'
 alias ..='cd ..'
+alias gs='git status'
 
 # Editor and shell Setup
 export EDITOR="nvim"
 export SHELL="zsh"
 export TERMINAL="alacritty"
+
 # Set up fzf
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
@@ -124,3 +127,6 @@ switch() {
 # Changing Node REPL History file location
 export NODE_REPL_HISTORY="$XDG_CONFIG_HOME/node_repl_history"
 export npm_config_cache=/home/yagna/.local/share/npm
+
+#nvim kickstarter
+alias nvim-kickstart='NVIM_APPNAME=nvim-kickstart nvim'

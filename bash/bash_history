@@ -11,3 +11,6 @@ cd Downloads/
 nvim
 nvim $(fzf)
 exit
+clear
+ls -la
+gs
