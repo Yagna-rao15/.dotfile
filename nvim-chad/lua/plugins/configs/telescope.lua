@@ -49,6 +49,14 @@ local options = {
   },
 
   extensions_list = { "themes", "terms" },
+  extensions = {
+    ['ui-select'] = {
+      require('telescope.themes').get_dropdown(),
+    },
+  },
+
+  pcall(require('telescope').load_extension, 'fzf'),
+  pcall(require('telescope').load_extension, 'ui-select'),
 }
 
 return options

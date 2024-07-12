@@ -20,7 +20,6 @@ M.lazy = function(install_path)
   local base46_repo = "https://github.com/NvChad/base46"
   shell_call { "git", "clone", "--depth", "1", "-b", "v2.0", base46_repo, lazy_path }
   vim.opt.rtp:prepend(lazy_path)
-
   require("base46").compile()
 
   --------- lazy.nvim ---------------
@@ -28,9 +27,8 @@ M.lazy = function(install_path)
   local repo = "https://github.com/folke/lazy.nvim.git"
   shell_call { "git", "clone", "--filter=blob:none", "--branch=stable", repo, install_path }
   vim.opt.rtp:prepend(install_path)
-
   -- install plugins
-  require "plugins"
+  -- require "plugins"
 
   -- mason packages & show post_bootstrap screen
   require "nvchad.post_install"()
@@ -45,7 +43,7 @@ M.gen_chadrc_template = function()
 
     local file = io.open(path .. "/chadrc.lua", "w")
     if file then
-      file:write "---@type ChadrcConfig\nlocal M = {}\n\nM.ui = { theme = 'onedark' }\n\nreturn M"
+      file:write "---@type ChadrcConfig\nlocal M = {}\n\nM.ui = { theme = 'ayu_dark' }\n\nreturn M"
       file:close()
     end
   end

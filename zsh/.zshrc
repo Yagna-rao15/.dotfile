@@ -73,6 +73,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias ..='cd ..'
 alias gs='git status'
+alias q='exit'
 
 # Editor and shell Setup
 export EDITOR="nvim"

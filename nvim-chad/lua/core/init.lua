@@ -1,5 +1,6 @@
 local opt = vim.opt
 local g = vim.g
+local key = vim.keymap
 local config = require("core.utils").load_config()
 
 -------------------------------------- globals -----------------------------------------
@@ -14,8 +15,10 @@ opt.showmode = false
 
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
+opt.scrolloff = 5
 
 -- Indenting
+opt.breakindent = true
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
@@ -26,6 +29,8 @@ opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Numbers
 opt.number = true
@@ -49,8 +54,22 @@ opt.updatetime = 250
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
+opt.hlsearch = true
+key.set('n', '<Esc', '<cmd>nohlsearch<CR>')
 
 g.mapleader = " "
+g.maplocalleader = " "
+g.have_nerd_font = true
+
+-- Event Listner and Callbacks
+-- Highlight yanked text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when Yanking text block',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function ()
+    vim.highlight.on_yank()
+  end,
+})
 
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
@@ -129,7 +148,7 @@ vim.api.nvim_create_autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
         if vim.g.editorconfig then
           require("editorconfig").config(args.buf)
         end
-      end, 0)
+      end)
     end
   end,
 })
