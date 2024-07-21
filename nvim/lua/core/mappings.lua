@@ -54,6 +54,7 @@ M.general = {
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
+        -- vim.lsp.buf.format()
       end,
       "LSP formatting",
     },
@@ -177,7 +178,7 @@ M.lspconfig = {
       "LSP definition type",
     },
 
-    ["<leader>ra"] = {
+    ["<leader>re"] = {
       function()
         require("nvchad.renamer").open()
       end,
@@ -196,13 +197,6 @@ M.lspconfig = {
         vim.lsp.buf.references()
       end,
       "LSP references",
-    },
-
-    ["<leader>lf"] = {
-      function()
-        vim.diagnostic.open_float { border = "rounded" }
-      end,
-      "Floating diagnostic",
     },
 
     ["[d"] = {
@@ -276,23 +270,27 @@ M.telescope = {
   n = {
     -- find
     -- ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all Files" },
+    ["<leader>fl"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>fc"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "Find Keymaps" },
+    ["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "Find Current Word" },
+    ["<leader>fd"] = { "<cmd> Telescope diagnostics <CR>", "Find Diagnostics" },
+    -- ["<leader>fn"] = { "<cmd> cwd=vim.fn.stdpath 'config' <CR>", "Find in current buffer" },
+    -- Try to do so that space+f+n searches files in nvim config
 
     -- git
-    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    -- ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
-
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }

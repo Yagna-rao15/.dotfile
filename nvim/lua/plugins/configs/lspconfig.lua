@@ -64,4 +64,12 @@ require("lspconfig").lua_ls.setup {
   },
 }
 
+require("lspconfig").pyright.setup({
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+
+  filetypes = {"python"},
+})
+
 return M
