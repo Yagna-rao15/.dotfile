@@ -1,10 +1,14 @@
 local options = {
   ensure_installed = {
     "lua-language-server",
+    "typescript-language-server",
+    "eslint-lsp",
+    "clangd",
+    "codelldb",
     "pyright",
-    "mypy",
     "ruff",
-    "black",
+    "autopep8",
+    "mypy",
   }, -- not an option from mason.nvim
 
   PATH = "skip",

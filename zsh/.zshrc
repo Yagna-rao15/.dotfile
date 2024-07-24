@@ -131,3 +131,4 @@ export npm_config_cache=/home/yagna/.local/share/npm
 
 #nvim kickstarter
 alias nvim-kickstart='NVIM_APPNAME=nvim-kickstart nvim'
+alias nvim-chad='NVIM_APPNAME=nvim-chad nvim'

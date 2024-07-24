@@ -25,7 +25,7 @@ M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
- preselectSupport = true,
+  preselectSupport = true,
   insertReplaceSupport = true,
   labelDetailsSupport = true,
   deprecatedSupport = true,
@@ -68,8 +68,35 @@ require("lspconfig").pyright.setup({
   on_init = M.on_init,
   on_attach = M.on_attach,
   capabilities = M.capabilities,
+  filetypes = { "python" },
+})
 
-  filetypes = {"python"},
+require("lspconfig").clangd.setup({
+  on_init = M.on_init,
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false,
+        utils.load_mappings("lspconfig", { buffer = bufnr })
+  end,
+  capabilities = M.capabilities,
+})
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+require("lspconfig").tsserver.setup({
+  on_init = M.on_init,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  commands = {
+    OrganizeImports = { organize_imports,
+      description = "Organize Imports"
+    }
+  },
 })
 
 return M
